@@ -18,6 +18,8 @@ import java.util.Optional;
 public class UserController {
 
     private UserService userService;
+    String thisString = "ryan is a bitch";
+
 
     @Autowired
     public UserController(UserService userService) {
@@ -39,6 +41,7 @@ public class UserController {
     public ResponseEntity<User> getUserByUserName(@RequestBody User user){
         return new ResponseEntity<User>(user,HttpStatus.OK);
     }
+
 
     @PostMapping("/user/{username}")
     public ResponseEntity<User> insertUser(@PathVariable String username){
