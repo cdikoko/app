@@ -1,0 +1,25 @@
+.displaynav{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:  'h a c p';
+    justify-items: center;
+    background-color: black;
+    color: white;
+    padding : 40px;
+}
+
+.navHome{
+grid-area: 'h';
+}
+
+.navAbout{
+    grid-area: 'a';
+}
+
+.navContact{
+    grid-area: 'c';
+}
+
+navProfile{
+    grid-area: 'p';
+}
