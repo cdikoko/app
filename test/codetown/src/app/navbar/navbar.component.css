@@ -8,8 +8,13 @@
     padding : 30px;
 }
 
+.displaynav > a {
+    text-decoration:none;
+    color:white;
+}
+
 .navHome{
-grid-area: 'h';
+    grid-area: 'h';
 }
 
 .navAbout{

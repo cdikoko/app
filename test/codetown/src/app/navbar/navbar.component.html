@@ -1,8 +1,23 @@
 <div>
   <div class = "displaynav">
-    <div class = "navHome">Home</div>
-    <div class = "navAbout">About</div>
-    <div class = "navContact">Contact</div>
-    <div class = "navProfile"> Profile</div>
+    
+    <a routerLink = "/about" >
+      <div class = "navHome">Home</div>
+    </a>
+    
+    <a routerLink = "/about" >
+      <div class = "navAbout">About</div>
+    </a>
+
+    <a routerLink = "/contact" >
+      <div class = "navContact">Contact</div>
+    </a>
+   
+    <a routerLink = "/invest" >
+      <div class = "navInvestments">Investments</div>
+    </a>
+    
   </div>
 </div>
+
+<router-outlet></router-outlet>
