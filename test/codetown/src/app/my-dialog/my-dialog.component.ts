@@ -24,8 +24,7 @@ export class MyDialogComponent implements OnInit {
   verifyLogin(){
     this.login.getUser(this.user).subscribe(data => {
       console.log(data);
-    }, 
-    
+    },
     )
   }
 
