@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { InvestmentsComponent } from './investments/investments.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,8 @@ import { InvestmentsComponent } from './investments/investments.component';
     NavbarComponent,
     LoginComponent,
     InvestmentsComponent,
+    HomeComponent,
+    AboutComponent,
     
   ],
   imports: [
@@ -38,15 +42,15 @@ import { InvestmentsComponent } from './investments/investments.component';
       },
       {
         path: 'home',
-        component: LoginComponent
+        component: HomeComponent
       },
       {
-        path: 'contact',
+        path: 'login',
         component: LoginComponent
       },
       {
         path: 'about',
-        component: LoginComponent
+        component: AboutComponent
       },      
       { path: 'invest', 
         component: InvestmentsComponent
