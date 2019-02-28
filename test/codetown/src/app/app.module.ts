@@ -50,8 +50,8 @@ import { AboutComponent } from './about/about.component';
       {
         path: 'about',
         component: AboutComponent
-      },      
-      { path: 'invest', 
+      },
+      { path: 'invest',
         component: InvestmentsComponent
       }
     ])

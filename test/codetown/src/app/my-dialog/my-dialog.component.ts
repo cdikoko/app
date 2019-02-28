@@ -11,26 +11,26 @@ import { error } from 'util';
   styleUrls: ['./my-dialog.component.css']
 })
 export class MyDialogComponent implements OnInit {
-  user : User
-  constructor(public login : LoginServiceService) { }
+  user: User;
+  constructor(public login: LoginServiceService) { }
 
   ngOnInit() {
   }
 
-  onSubmit(form: Form){
+  onSubmit(form: Form) {
     console.log(form);
   }
 
-  verifyLogin(){
+  verifyLogin() {
     this.login.getUser(this.user).subscribe(data => {
       console.log(data);
     },
-    )
+    );
   }
 
-  testStuff(){
+  testStuff() {
     console.log(this.login.test());
-   return this.login.test();
+    return this.login.test();
   }
 
 }
