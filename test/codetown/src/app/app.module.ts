@@ -22,7 +22,6 @@ import { AboutComponent } from './about/about.component';
     InvestmentsComponent,
     HomeComponent,
     AboutComponent,
-    
   ],
   imports: [
     BrowserModule,
