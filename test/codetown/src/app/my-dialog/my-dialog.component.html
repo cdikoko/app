@@ -3,7 +3,7 @@
   <form #formid="ngForm" autocomplete="on" (ngSubmit)="onSubmit(formid.value)">
     <div>
     <mat-form-field>
-      <input name="username" ngModel #username="ngModel" matInput placeholder="Username">
+      <input autofocus name="username" ngModel #username="ngModel" matInput placeholder="Username">
     </mat-form-field>
   </div>
   <div>
