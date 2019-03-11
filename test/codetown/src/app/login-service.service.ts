@@ -8,15 +8,14 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 export class LoginServiceService {
-  url = "notgoogle";
+  url = "http://localhost:8080/api";
   constructor(public http: HttpClient) { }
   
-  getUser(user: User):Observable<any>{
-    return  this.http.get(this.url);
+  getUser(user: User): Observable<any>{
+    return  this.http.get(this.url + '/1');
   }
 
-  test(){
-    return "Hello test, this is only a test";
+  getAllUsers(): Observable<any> {
+  return this.http.get(this.url + '/users');
   }
-
 }

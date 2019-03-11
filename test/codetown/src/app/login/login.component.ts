@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {MatButton, MatDialog} from '@angular/material';
 import { MyDialogComponent } from '../my-dialog/my-dialog.component';
+import { LoginServiceService } from '../login-service.service';
 
 
 @Component({
@@ -11,9 +12,12 @@ import { MyDialogComponent } from '../my-dialog/my-dialog.component';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+ 
+
+  constructor(public dialog: MatDialog, private login: LoginServiceService) { }
 
   ngOnInit() {
+    this.login.getAllUsers();
   }
 
   openDialog(): void {

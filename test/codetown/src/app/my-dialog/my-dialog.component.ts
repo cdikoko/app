@@ -11,27 +11,25 @@ import { error } from 'util';
   styleUrls: ['./my-dialog.component.css']
 })
 export class MyDialogComponent implements OnInit {
-  user : User
+  user: any [] = []
   constructor(public login : LoginServiceService) { }
 
   ngOnInit() {
+
   }
 
   onSubmit(form: Form){
     console.log(form);
   }
 
-  verifyLogin(){
-    this.login.getUser(this.user).subscribe(data => {
-      console.log(data);
+  getUser(){
+    this.login.getAllUsers().subscribe(data => {
+     this.user.push(data);
     }, 
     
     )
   }
 
-  testStuff(){
-    console.log(this.login.test());
-   return this.login.test();
-  }
+  
 
 }
