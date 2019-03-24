@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule, Form} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { LoginServiceService } from '../login-service.service';
+import { LoginServiceService } from '../services/login-service.service';
 import { User } from '../models/User';
 import { error } from 'util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-dialog',
@@ -11,25 +12,39 @@ import { error } from 'util';
   styleUrls: ['./my-dialog.component.css']
 })
 export class MyDialogComponent implements OnInit {
-  user: any [] = []
-  constructor(public login : LoginServiceService) { }
-
-  ngOnInit() {
-
-  }
-
-  onSubmit(form: Form){
-    console.log(form);
-  }
-
-  getUser(){
-    this.login.getAllUsers().subscribe(data => {
-     this.user.push(data);
-    }, 
-    
-    )
-  }
-
+  user:User;
+  username = "";
+  password="";
+  constructor(private router: Router,public login: LoginServiceService) { }
   
+  ngOnInit() {
+    
+  }
+  
+  onSubmit(form: Form){
+    this.getUser();
+  }
+  
+  getUser(){
+    this.login.getUser(this.username).subscribe(data => {
+      this.user = new User (this.username,this.password);
+      if(this.user.username===data.username){
+        console.log("yes")
+        if(this.user.password===data.password){
+          this.router.navigate(['Home']);
+
+        }
+
+      }
+      
+   
+    },
+    error=>{
+      console.log("error")
+    }
+    )
+  
+  }
+
 
 }

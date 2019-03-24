@@ -3,14 +3,14 @@
   <form #formid="ngForm" autocomplete="on" (ngSubmit)="onSubmit(formid.value)">
     <div>
     <mat-form-field>
-      <input autofocus name="username" ngModel #username="ngModel" matInput placeholder="Username">
+      <input autofocus name="username" [(ngModel)]="username" matInput placeholder="Username">
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input name="password" ngModel #password="ngModel" matInput placeholder="Password">
+      <input name="password" [(ngModel)]="password" matInput placeholder="Password">
     </mat-form-field></div>
     <button type="submit" mat-raised-button color="primary">Submit</button>
   </form>
-  <button (click)="getUser()" mat-raised-button color="primary">TestService</button>
+
 </div>

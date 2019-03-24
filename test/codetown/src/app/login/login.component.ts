@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import {MatButton, MatDialog} from '@angular/material';
 import { MyDialogComponent } from '../my-dialog/my-dialog.component';
-import { LoginServiceService } from '../login-service.service';
+import { LoginServiceService } from '../services/login-service.service';
+import { User } from '../models/User';
+import { MaterialModule } from '../models/Material';
+
 
 
 @Component({
@@ -12,7 +15,7 @@ import { LoginServiceService } from '../login-service.service';
 })
 export class LoginComponent implements OnInit {
 
- 
+  user: User = new User();
 
   constructor(public dialog: MatDialog, private login: LoginServiceService) { }
 
@@ -27,8 +30,10 @@ export class LoginComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-     
+      this.user = result;
+      console.log(this.user)
     });
+
+  
   }
 }

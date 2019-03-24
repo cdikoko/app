@@ -1,3 +1,7 @@
-.stupid{
-    margin-top:36px;
+.login-button{
+    text-align: center;
+    height: auto;
+    top: 45%;
+    position: absolute;
+    left: 50%;
 }

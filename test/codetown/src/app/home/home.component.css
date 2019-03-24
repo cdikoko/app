@@ -1,0 +1,14 @@
+.intro-card{
+    text-align: center;
+    width: 250px;
+    height: 275px;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    background-color: gray; 
+}
+.Title{
+    text-align: center;
+    color:whitesmoke;
+  
+}

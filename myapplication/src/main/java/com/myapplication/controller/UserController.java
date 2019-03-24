@@ -6,6 +6,7 @@ import com.myapplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +16,11 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/api")
+@CrossOrigin("http://localhost:4200")
 public class UserController {
 
     private UserService userService;
-    String thisString = "ryan is a bitch";
+
 
 
     @Autowired
@@ -37,13 +39,13 @@ public class UserController {
         return new ResponseEntity<User>(userService.findUserById(user.getUserId()).get(),HttpStatus.OK);
     }
 
-    @GetMapping("/user/username")
-    public ResponseEntity<User> getUserByUserName(@RequestBody User user){
-        return new ResponseEntity<User>(user,HttpStatus.OK);
+    @GetMapping("/user/{username}")
+    public ResponseEntity<User> getUserByUserName(@PathVariable String username){
+        return new ResponseEntity<User>(userService.findByUserName(username),HttpStatus.OK);
     }
 
 
-    @PostMapping("/user/{username}")
+    @PostMapping("/user/create/{username}")
     public ResponseEntity<User> insertUser(@PathVariable String username){
        return new ResponseEntity<User>( userService.insertUser(username), HttpStatus.OK);
     }

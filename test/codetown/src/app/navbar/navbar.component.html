@@ -1,23 +1,16 @@
-<div>
-  <div class = "displaynav">
-    
-    <a routerLink = "/home" >
-      <div class = "navHome">Home</div>
-    </a>
-    
-    <a routerLink = "/about" >
-      <div class = "navAbout">About</div>
-    </a>
+<mat-toolbar>
+<mat-menu #rootMenu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="subMenu" color="primary">Home</button>
+  <button mat-menu-item>System settings</button>
+</mat-menu>
 
-    <a routerLink = "/login" >
-      <div class = "navLogin">Login</div>
-    </a>
-   
-    <a routerLink = "/invest" >
-      <div class = "navInvestments">Investments</div>
-    </a>
-    
-  </div>
-</div>
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item>Register</button>
+  <button mat-menu-item>Log Out</button>
+</mat-menu>
 
+<button style="width:100%;"mat-button [matMenuTriggerFor]="rootMenu">
+   Welcome
+</button>
+</mat-toolbar>
 <router-outlet></router-outlet>

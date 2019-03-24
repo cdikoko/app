@@ -32,4 +32,12 @@ public class UserService {
         dBuser.setUsername(username);
         return userRepo.save(dBuser);
     }
+
+    public User findByUserName(String username) {
+        List<User> all = userRepo.findAll();
+        return all.stream().filter(user -> user.getUsername().equals(username)).findFirst().get();
+
+
+
+    }
 }

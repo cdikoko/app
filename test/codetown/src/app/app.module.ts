@@ -10,57 +10,56 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-import { InvestmentsComponent } from './investments/investments.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { NavbarService } from './services/navbar/navbar.service';
+import { MaterialModule } from './models/Material';
+const appRoutes: Routes =   [{
+        path: '',
+        component: LoginComponent
+      },
+      {
+        path: 'Home',
+        component: HomeComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      }
+    ];
 @NgModule({
   declarations: [
     AppComponent,
     MyDialogComponent,
     NavbarComponent,
     LoginComponent,
-    InvestmentsComponent,
-    HomeComponent,
-    AboutComponent,
-    
+    HomeComponent
   ],
-  imports: [
+    imports:[
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatDialogModule,
+    MaterialModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
     MatTableModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: LoginComponent
-      },
-      {
-        path: 'home',
-        component: HomeComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'about',
-        component: AboutComponent
-      },      
-      { path: 'invest', 
-        component: InvestmentsComponent
-      }
-    ])
-  ],
+    RouterModule.forRoot(
+      appRoutes
+  )],
+  exports:[
+    BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule,
+    MatTableModule] 
+  ,
   entryComponents: [
     MyDialogComponent
   ],
-  providers: [],
+  providers: [NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
