@@ -10,7 +10,9 @@
     <mat-form-field>
       <input name="password" [(ngModel)]="password" matInput placeholder="Password">
     </mat-form-field></div>
-    <button type="submit" mat-raised-button color="primary">Submit</button>
+    <button type="submit" mat-flat-button color="primary" mat-dialog-submit>Submit</button>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
   </form>
-
+  
+  
 </div>

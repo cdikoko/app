@@ -5,6 +5,7 @@ import { MyDialogComponent } from '../my-dialog/my-dialog.component';
 import { LoginServiceService } from '../services/login-service.service';
 import { User } from '../models/User';
 import { MaterialModule } from '../models/Material';
+import { AccountService } from '../services/account/account.service';
 
 
 
@@ -17,10 +18,10 @@ export class LoginComponent implements OnInit {
 
   user: User = new User();
 
-  constructor(public dialog: MatDialog, private login: LoginServiceService) { }
+  constructor(public dialog: MatDialog,private account:AccountService, private login: LoginServiceService) { }
 
   ngOnInit() {
-    this.login.getAllUsers();
+   this.account.getBalance();
   }
 
   openDialog(): void {
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.user = result;
-      console.log(this.user)
+      console.log(this.user);
     });
 
   

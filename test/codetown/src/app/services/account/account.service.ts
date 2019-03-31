@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class AccountService {
   url = "http://localhost:8080/api";
   constructor(public http: HttpClient) { }
-  
-  getBalance(username:String):Observable<any>{
-    return this.http.get(this.url + "/account/balance/"+ username)
+
+  getBalance():Observable<any>{
+    return this.http.get(this.url + "/account")
   }
 }

@@ -1,14 +1,26 @@
 .intro-card{
     text-align: center;
-    width: 250px;
-    height: 275px;
+    width: auto;
+    height: auto;
     position: absolute;
     top: 25%;
     left: 35%;
-    background-color: gray; 
+
 }
 .Title{
     text-align: center;
     color:whitesmoke;
   
+}
+
+.mat-header{
+    text-align: center;
+    padding-right:1rem;
+
+}
+
+.table{
+    width:100;
+    height: auto;
+    text-align: center;
 }

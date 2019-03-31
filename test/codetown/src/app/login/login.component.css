@@ -5,3 +5,7 @@
     position: absolute;
     left: 50%;
 }
+
+mat-grid-tile {
+    background: lightblue;
+  }

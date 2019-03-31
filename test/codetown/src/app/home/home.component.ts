@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../services/navbar/navbar.service';
 import { User } from '../models/User';
 import { AccountService } from '../services/account/account.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,19 +10,21 @@ import { AccountService } from '../services/account/account.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  username="";
-  balance=0;
+  data : any = [];
+  userData: any =[];
+  userDisplayedColumns : string []=['id','username', 'email']
+  acc: Account;
+  displayedColumns: string[] = ['id', 'balance', 'userid'];
   constructor(private account: AccountService,public nav: NavbarService) { }
 
   ngOnInit() {
-    this.nav.hide();
+    this.getAccounts();
 
   }
 
-  getBalance(username: String){
-
-    this.account.getBalance(username).subscribe(data=>{
-      this.balance = data;
+  getAccounts(){
+    this.account.getBalance().subscribe(data=>{
+     this.data = data;
     });
   }
 }

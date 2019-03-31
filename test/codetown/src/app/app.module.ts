@@ -13,6 +13,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavbarService } from './services/navbar/navbar.service';
 import { MaterialModule } from './models/Material';
+import { AccountService } from './services/account/account.service';
+import { LoginServiceService } from './services/login-service.service';
 const appRoutes: Routes =   [{
         path: '',
         component: LoginComponent
@@ -59,7 +61,7 @@ const appRoutes: Routes =   [{
   entryComponents: [
     MyDialogComponent
   ],
-  providers: [NavbarService],
+  providers: [NavbarService, AccountService, LoginServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

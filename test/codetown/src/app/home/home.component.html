@@ -1,6 +1,72 @@
-<mat-card class="intro-card" color="primary">
-    <div class="Title">
-        <h1>Account Details</h1>
-        <p [(ngModel)]="balance">{{balance}}</p>
-    </div>
-</mat-card>
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Admin Controls
+        </mat-panel-title>
+        <mat-panel-description>
+          View All Accounts
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="data" class="mat-elevation-z8">
+        <div class="table-headers">
+            
+            <ng-container matColumnDef="id">
+                <th class="mat-header" mat-header-cell *matHeaderCellDef> id </th>
+                <td mat-cell *matCellDef="let acc"> {{acc.id}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="balance">
+                <th class="mat-header"  mat-header-cell *matHeaderCellDef> balance </th>
+                <td mat-cell *matCellDef="let acc"> {{acc.balance}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="userid">
+                <th  class="mat-header" mat-header-cell *matHeaderCellDef> userid </th>
+                <td mat-cell *matCellDef="let acc"> {{acc.accountId}} </td>
+            </ng-container>
+            
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </div>
+          </table>
+
+          <table mat-table [dataSource]="userdata" class="mat-elevation-z8">
+            <div class="table-headers">
+                
+                <ng-container matColumnDef="id">
+                    <th class="mat-header" mat-header-cell *matHeaderCellDef> id </th>
+                    <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="username">
+                    <th class="mat-header"  mat-header-cell *matHeaderCellDef> username </th>
+                    <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="email">
+                    <th  class="mat-header" mat-header-cell *matHeaderCellDef> email </th>
+                    <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+                </ng-container>
+                
+                
+                <tr mat-header-row *matHeaderRowDef="userDisplayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: userDisplayedColumns;"></tr>
+            </div>
+              </table>
+     
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Self aware panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+  </mat-accordion>

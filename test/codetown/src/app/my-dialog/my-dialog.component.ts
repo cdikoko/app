@@ -5,6 +5,7 @@ import { LoginServiceService } from '../services/login-service.service';
 import { User } from '../models/User';
 import { error } from 'util';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-my-dialog',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-dialog.component.css']
 })
 export class MyDialogComponent implements OnInit {
-  user:User;
+  user:User=new User();
   username = "";
   password="";
   constructor(private router: Router,public login: LoginServiceService) { }
@@ -32,12 +33,9 @@ export class MyDialogComponent implements OnInit {
         console.log("yes")
         if(this.user.password===data.password){
           this.router.navigate(['Home']);
-
         }
 
       }
-      
-   
     },
     error=>{
       console.log("error")
